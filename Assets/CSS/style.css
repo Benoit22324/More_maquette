@@ -1,10 +1,10 @@
 @font-face {
   font-family: "Permanent Marker";
-  src: url("/Exercice/Exo/Assets/Fonts/PermanentMarker-Regular.ttf");
+  src: url("../Assets/Fonts/PermanentMarker-Regular.ttf");
 }
 @font-face {
   font-family: "Playpen";
-  src: url("/Exercice/Exo/Assets/Fonts/PlaypenSans-Regular.ttf");
+  src: url("../Assets/Fonts/PlaypenSans-Regular.ttf");
 }
 body {
   margin: 0;
