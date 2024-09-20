@@ -120,7 +120,7 @@ header .header_txt_container p {
 }
 
 .course_section {
-  padding-bottom: 1rem;
+  padding: 0.5rem 0 1rem;
   background-color: rgb(255, 216, 104);
 }
 .course_section h2 {
@@ -262,11 +262,9 @@ footer .social_container {
   body h2 {
     font-size: 3rem;
   }
-  header {
-    align-items: flex-end;
-  }
   header img {
     width: 30%;
+    align-self: flex-end;
   }
   .promo_button {
     margin: 0.5rem 0;

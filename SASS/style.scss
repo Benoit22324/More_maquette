@@ -136,7 +136,7 @@ header {
 
 // Course
 .course_section {
-    padding-bottom: 1rem;
+    padding: 0.5rem 0 1rem;
     background-color: $yellow-orange;
 
     h2 {
@@ -272,12 +272,9 @@ footer {
         }
     }
 
-    header {
-        align-items: flex-end;
-
-        img {
-            width: 30%;
-        }
+    header img {
+        width: 30%;
+        align-self: flex-end;
     }
     .promo_button {
         margin: 0.5rem 0;
