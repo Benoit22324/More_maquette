@@ -1,0 +1,15 @@
+{
+  "name": "exo",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "watch": "sass --watch ./SASS/style.scss:./Assets/CSS/style.css"
+  },
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "sass": "^1.79.2"
+  }
+}

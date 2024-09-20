@@ -1,0 +1,317 @@
+@font-face {
+    font-family: 'Permanent Marker';
+    src: url("/Exercice/Exo/Assets/Fonts/PermanentMarker-Regular.ttf");
+}
+@font-face {
+    font-family: 'Playpen';
+    src: url("/Exercice/Exo/Assets/Fonts/PlaypenSans-Regular.ttf");
+}
+
+// Variables
+$yellow-orange: rgb(255, 216, 104);
+$violet: rgb(114, 27, 101);
+$grey: rgba(0,0,0, 50%);
+$white: rgb(247, 247, 247);
+$dark: rgb(22, 22, 22);
+
+$violet-hover: rgb(136, 37, 121);
+$white-hover: rgb(240, 240, 240);
+
+$overlay: rgba(22, 22, 22, 0.25);
+
+$title-font: 'Permanent Marker';
+$text-font: 'Playpen';
+
+// Mixin
+@mixin modifyTxt($weight: normal, $size: 1rem, $color: $dark, $title: none) {
+    font-weight: #{$weight};
+    font-size: #{$size};
+    color: #{$color};
+    text-align: center;
+    @if $title != none {
+        font-family: $title;
+    }
+    @else {
+        font-family: $text-font;
+    }
+}
+
+@mixin flex($justify, $align, $direction: row, $wrap: nowrap) {
+    display: flex;
+    justify-content: #{$justify};
+    align-items: #{$align};
+    flex-direction: #{$direction};
+    flex-wrap: #{$wrap};
+}
+
+@mixin border($size: 1px, $style: solid, $color: $dark, $radius: 0) {
+    border: #{$size $style $color};
+    border-radius: #{$radius};
+}
+
+@mixin button_style() {
+    width: 49%;
+    margin: 0.5rem auto;
+    padding: 0.8rem 1.3rem;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+// Global
+body {
+    margin: 0;
+    box-sizing: border-box;
+
+    h1 {
+        @include modifyTxt(bold, 3rem, $violet, $title-font);
+    }
+    h2 {
+        @include modifyTxt(bold, 2rem, $grey, $title-font);
+        margin-bottom: 0;
+    }
+    img {
+        object-fit: contain;
+    }
+
+    .hidden_mobile {
+        display: none;
+    }
+}
+.sub_title_mark {
+    color: $dark;
+}
+.reverse_promo_button {
+    @include button_style();
+    @include modifyTxt(normal, 1rem, $violet);
+    background-color: $white;
+
+    &:hover {
+        background-color: $white-hover;
+    }
+}
+.promo_button {
+    @include button_style();
+    @include modifyTxt(normal, 1rem, $white);
+    background-color: $violet;
+
+    &:hover {
+        background-color: $violet-hover;
+    }
+}
+
+// Header
+header {
+    @include flex(space-around, center, column);
+    padding: 1.2rem;
+    background-color: $yellow-orange;
+
+    .header_txt_container {
+        width: 95%;
+
+        p {
+            @include modifyTxt(normal, 1.1rem, $grey);
+        }
+    }
+}
+
+// Main
+// Certification
+.certif_section {
+    @include flex(space-around, center, column);
+
+    img {
+        width: 90%;
+        margin-top: 1.2rem;
+    }
+    .certif_txt_container {
+        @include flex(center, center, column);
+        width: 90%;
+
+        p {
+            @include modifyTxt(normal, 1.1rem);
+        }
+    }
+}
+
+// Course
+.course_section {
+    padding-bottom: 1rem;
+    background-color: $yellow-orange;
+
+    h2 {
+        color: $violet;
+    }
+    .course_carouselle {
+        @include flex(space-around, center);
+        overflow: hidden;
+
+        figure {
+            position: relative;
+        }
+        img {
+            width: 100%;
+        }
+        figcaption {
+            @include flex(center, end);
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: $overlay;
+
+            p {
+                @include modifyTxt(normal, 1rem, $white);
+                width: 100%;
+                margin: 0;
+                padding: 0.2rem;
+                background-color: $violet;
+            }
+        }
+    }
+    .see_more {
+        @include modifyTxt(normal, 1.2rem, $violet);
+        width:fit-content;
+        margin: 0 auto;
+        padding: 0.3rem;
+
+        &::after {
+            content: '>';
+            width: 5px;
+            margin-left: 10px;
+            font-weight: bold;
+        }
+        &:hover {
+            background-color: $white-hover;
+            border-radius: 10px;
+            cursor: pointer;
+        }
+    }
+}
+
+// Information
+.info_section {
+    @include flex(center, center, column);
+    padding: 1.5rem;
+
+    p {
+        @include modifyTxt(normal, 1rem, $dark);
+    }
+}
+
+// Footer
+footer {
+    @include flex(space-around, center);
+    margin-bottom: 2rem;
+
+    .social_container {
+        padding: 1.5rem;
+        border-radius: 50%;
+        background-color: $violet;
+    }
+}
+
+// Responsive
+@media (min-width: 450px) {
+    body {
+        h1 {
+            text-align: start;
+            font-size: 3.5rem;
+        }
+        h2 {
+            font-size: 2.2rem;
+        }
+
+        .hidden_mobile {
+            display: inline-block;
+        }
+    }
+
+    header {
+        flex-direction: row;
+        padding-bottom: 0;
+
+        img {
+            width: 50%;
+        }
+        .header_txt_container {
+            width: 40%;
+
+            p {
+                text-align: left;
+            }
+        }
+    }
+
+    .certif_section {
+        flex-direction: row;
+        padding: 1.5rem;
+
+        img {
+            width: 40%;
+        }
+        .certif_txt_container {
+            width: 40%;
+        }
+    }
+
+    .info_section {
+        padding: 4rem;
+    }
+}
+
+@media (min-width: 1000px) {
+    body {
+        h1 {
+            text-align: start;
+            font-size: 4.5rem;
+        }
+        h2 {
+            font-size: 3rem;
+        }
+    }
+
+    header {
+        align-items: flex-end;
+
+        img {
+            width: 30%;
+        }
+    }
+    .promo_button {
+        margin: 0.5rem 0;
+    }
+
+    .certif_section {
+
+        img {
+            width: 30%;
+        }
+        .certif_txt_container {
+            align-items: end;
+
+            h2, p {
+                text-align: right;
+            }
+        }
+    }
+
+    .info_section {
+        padding: 4rem 8rem;
+        align-items: flex-start;
+
+        p {
+            text-align: left;
+        }
+        .promo_button {
+            width: 20%;
+            margin: auto;
+        }
+    }
+
+    footer {
+        justify-content: center;
+        gap: 2rem;
+    }
+}
