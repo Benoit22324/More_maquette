@@ -211,6 +211,11 @@ footer {
   margin-bottom: 2rem;
 }
 footer .social_container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  flex-wrap: nowrap;
   padding: 1.5rem;
   border-radius: 50%;
   background-color: rgb(114, 27, 101);
@@ -291,7 +296,7 @@ footer .social_container {
   }
   footer {
     justify-content: center;
-    gap: 2rem;
+    gap: 3.5rem;
   }
 }
 
